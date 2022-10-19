@@ -1,0 +1,20 @@
+use newHRDatabase
+db.createCollection("PersonalInfo")
+db.createCollection("ProfessionalInfo")
+show collections
+
+db.PersonalInfo.insertMany([{Empid:"X20221010",Empname :'Pritam',Age:26,Gender:'male', contact : 9988776655,city:'Delhi'},{Empid:"X20221011",Empname : 'Gitanjali',Age:27,Gender:'Female',city:'New york'},{Empid:"X20221013",Empname : 'Sonam',Age:29,Gender:'Female', contact : 7788995533,city:'Banglore'},{Empid:"X20221017",Empname :'Shekhar',Age:29,Gender:'male',city:'Pune'}])
+
+db.PersonalInfo.find().pretty()
+
+db.ProfessionalInfo.insertMany([{Designation:"Consultant",Department:"Finance",Income:80000},{Designation:"Sr.Developer",Department:"IT",Income:90000},{Designation:"Data Analyst",Department:"Software",Income:150000},{Designation:"Manager",Department:"Logistics",Income:200000}])
+
+db.ProfessionalInfo.find().pretty()
+
+db.PersonalInfo.update({'Empname':'Gitanjali'},{$set:{'Age':'25'}})
+db.PersonalInfo.update({'Empname':'Gitanjali'},{$set:{'city':'chennai'}})
+db.PersonalInfo.update({'Empname':'Sonam'},{$set:{'Age':'31'}})
+db.PersonalInfo.update({'Empname':'Sonam'},{$set:{'city':'Kolkata'}})
+
+db.PersonalInfo.find().pretty()
+db.ProfessionalInfo.find().pretty()
